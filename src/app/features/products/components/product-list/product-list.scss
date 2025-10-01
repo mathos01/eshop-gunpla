@@ -1,0 +1,12 @@
+// product-list.scss
+div {
+  border: 1px solid black; // C'est du SCSS classique
+  padding: 1em;
+}
+
+#productListCard{
+  display: flex;
+  justify-content: space-between;
+  flex-flow: row wrap;
+  padding: 0em;
+}
