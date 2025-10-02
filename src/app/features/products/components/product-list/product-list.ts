@@ -2,27 +2,12 @@ import { Component } from '@angular/core';
 import type { product } from '../../../../models/product.model';
 import {ProductCard} from '../product-card/product-card';
 import {CurrencyPipe, NgStyle} from '@angular/common';
-import {
-  MatCard,
-  MatCardContent,
-  MatCardHeader,
-  MatCardImage,
-  MatCardSubtitle,
-  MatCardTitle
-} from '@angular/material/card';
-
 // product-list.ts
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.html',
   imports: [
     CurrencyPipe,
-    MatCard,
-    MatCardHeader,
-    MatCardContent,
-    MatCardImage,
-    MatCardTitle,
-    MatCardSubtitle,
     NgStyle
   ],
   styleUrls: ['./product-list.scss']
@@ -39,22 +24,22 @@ export class ProductList {
   products: product[] = [
   {
     id: 1,
-    name: 'The Witcher 3: Wild Hunt',
-    description: 'Jeu de rôle en monde ouvert dans un univers fantasy sombre',
-    price: 39.99,
-    imageUrl: 'https://placehold.co/300x200/8B0000/ffffff?text=Witcher',
+    name: 'Bandai gunpla: MG RX 78-2',
+    description: 'maquette de la franchise gundam sur le célèbre modèle RX 78-2 dans sa version master grade',
+    price: 49.99,
+    imageUrl: 'https://placehold.co/300x200/8B0000/ffffff?text=RX78-2',
     category: 'gaming',
     inStock: true,
     rating: 4.9
   },
   {
     id: 2,
-    name: 'Nike Air Max 270',
-    description: 'Baskets de running avec technologie Air Max visible',
-    price: 149.99,
-    imageUrl: 'https://placehold.co/300x200/FF6347/ffffff?text=Nike',
+    name: 'T-shirt goldorak 1975',
+    description: 'T-shirt du célèbre robot Goldorak en collaboration avec la marque uniqlo',
+    price: 19.99,
+    imageUrl: 'https://placehold.co/300x200/FF6347/ffffff?text=uniqlo',
     category: 'clothing',
-    inStock: true,
+    inStock: false,
     rating: 4.5
   },
   {
