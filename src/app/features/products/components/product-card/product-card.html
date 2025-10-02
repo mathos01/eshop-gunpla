@@ -2,9 +2,9 @@
 <div class="product-card">
   <h3>{{ title }}</h3>
   <p>Prix normal : {{ price }}€</p>
- <!-- <p>Prix avec réduction : {{ getDiscountPrice() }}€</p>-->
+  <p>Prix avec réduction : {{ getDiscountPrice() }}€</p>
   <p>Stock : {{ inStock ? 'Disponible' : 'Rupture' }}</p>
- <!-- <p>Caractéristiques : {{ features.length }} options</p>-->
-  <!--<app-counter></app-counter>-->
+ <p>Caractéristiques : {{ features.length }} options</p>
+  <app-counter></app-counter>
   <button (click)="onBuyClick()">Acheter</button>
 </div>

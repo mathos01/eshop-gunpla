@@ -15,13 +15,12 @@ export class ProductCard {
   price = 2299; // propriété
   inStock = true; // propriété
 
-  /*discount = 0.1; // 10% de réduction
+  discount = 0.1; // 10% de réduction
   features = ['Écran Retina', 'M1 Pro', '16 Go RAM'];
 
   getDiscountPrice(): number {
     return this.price * (1 - this.discount);
   }
-*/
     onBuyClick() { // méthode
     if (this.inStock) {
       console.log(`${this.title} ajouté au panier !`);

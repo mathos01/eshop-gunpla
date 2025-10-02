@@ -1,10 +1,53 @@
-<div>
-  <p>product-list works!</p>
-  <div id="productListCard">
-    <app-product-card></app-product-card>
-    <app-product-card></app-product-card>
-    <app-product-card></app-product-card>
-    <app-product-card></app-product-card>
-  </div>
-</div>
+<!-- product-list.html -->
+<section>
+  <div>
+    <div id="blackBorder">
+      <p>nos produits!</p>
+    </div>
+    <div id="productListCard">
+    @for(product of products; track product.id) {
+        <div class="card">
+          <h3>{{ product.name }}</h3>
+          <p>{{product.description}}</p>
+          <img [src]="product.imageUrl" [alt]="product.name">
 
+          <p>{{ product.price | currency : 'EUR' : 'symbol'}} - ⭐{{product.rating}}</p>
+          <div id="productListCard">
+            @if (product.inStock) {
+              <p class="in-stock">✅ En stock -</p>
+            } @else {
+              <p class="out-of-stock">❌ Rupture de stock -</p>
+            }
+            @switch (product.category) {
+              @case ('electronics') {
+                <span class="badge blue">📱 High-tech</span>
+              }
+              @case ('gaming') {
+                <span class="badge green">🎮 Jeux vidéo</span>
+              }
+              @case ('home'){
+                <span>🏠 Maison</span>
+              }
+              @case ('clothing'){
+                <span>👕 Mode</span>
+              }
+              @case ('sports'){
+                <span>⚽ Sport</span>
+              }
+              @default {
+                <span class="badge gray">📦 Autre</span>
+              }
+            }
+          </div>
+        </div>
+    } @empty {
+      <p>Aucun produit disponible...</p>
+    }
+    </div>
+    <div id="blackBorder">
+      <p>{{getProductNumber()}} produits au total</p>
+      <p>{{inStockProduct()}} produits en stock</p>
+    </div>
+  </div>
+
+</section>
