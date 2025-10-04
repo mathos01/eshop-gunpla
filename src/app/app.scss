@@ -1,0 +1,17 @@
+/* HTML: <div class="spiral"></div> */
+.loader{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+img{
+  max-width: 25em;
+  height: auto;
+  border-radius: 100%;
+  animation: spin 9s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

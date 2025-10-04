@@ -1,0 +1,25 @@
+import {Routes} from '@angular/router';
+import {productListResolver} from './resolvers/product-list-resolver';
+import {authGuard} from './guards/auth-guard';
+
+export const routes: Routes = [
+  //ma page d'accueil
+  {path: '', loadComponent: () => import("../features/home/pages/home.page")},
+  //mon magasin
+  {path: 'products', loadComponent: () => import("../features/products/pages/product.page"),resolve:{products : productListResolver}},
+  {path: 'products/:id', loadComponent: () => import("../features/products/pages/product-detail.page"),},
+  //manager de compte
+  {path:'account',
+  loadComponent: () => import('../features/account/pages/account.page'),
+  children:[
+    {path:'profile', loadComponent: () => import('../features/account/pages/profile.page'),},
+    {path:'orders', loadComponent: () => import('../features/account/pages/orders.page'),},
+    {path:'admin', loadComponent: () => import('../features/account/pages/admin.page'), canActivate:[authGuard]},
+  ]
+  },
+  //les pages de mon core , about/settings/error
+  {path:'about',loadComponent: () => import('../core/pages/about.page'),},
+  {path:'settings',loadComponent: () => import('../core/pages/setting.page'),},
+  {path:'error' ,loadComponent: () => import('../core/pages/error.page'),},
+  {path:'**', redirectTo: 'error'},
+];

@@ -1,10 +1,15 @@
 <!-- product-card.html -->
-<div class="product-card">
-  <h3>{{ title }}</h3>
-  <p>Prix normal : {{ price }}€</p>
-  <p>Prix avec réduction : {{ getDiscountPrice() }}€</p>
-  <p>Stock : {{ inStock ? 'Disponible' : 'Rupture' }}</p>
- <p>Caractéristiques : {{ features.length }} options</p>
-  <app-counter></app-counter>
-  <button (click)="onBuyClick()">Acheter</button>
+<div [ngStyle]="{background: productCard().inStock?'#e0e0e0':'#EE8B8B'}">
+  <h3>{{ productCard().name }}</h3>
+  <img [src]="productCard().imageUrl" [alt]="productCard().name">
+  <p>prix: {{productCard().price | currency: "EUR"}} avis: {{productCard().rating}}⭐</p>
+  @if (productCard().inStock) {
+    <p class="in-stock">✅ En stock</p>
+  } @else {
+    <p class="out-of-stock">❌ Rupture de stock</p>
+  }
+  <nav>
+    <button (click)="onBuyClick()">Acheter</button>
+    <button [routerLink]="[productCard().id]">Détails</button>
+  </nav>
 </div>

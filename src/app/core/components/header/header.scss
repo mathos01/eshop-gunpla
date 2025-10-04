@@ -1,0 +1,17 @@
+div{
+  padding: 0px;
+  border: gray solid 1px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-flow: row wrap;
+  img{
+    max-width: 50px;
+  }
+  button{
+    border: none;
+    text-transform: uppercase;
+    max-height: 100px;
+    height:60px;
+  }
+}

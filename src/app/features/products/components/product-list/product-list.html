@@ -5,41 +5,9 @@
       <p>nos produits!</p>
     </div>
     <div id="productListCard">
-    @for(product of products; track product.id) {
-        <div class="card" [ngStyle]="{background: product.inStock?'#e0e0e0':'#EE8B8B'}">
-          <h3>{{ product.name }}</h3>
-          <p>{{product.description}}</p>
-          <img [src]="product.imageUrl" [alt]="product.name">
+    @for(product of products(); track product.id) {
 
-          <p>{{ product.price | currency : 'EUR' : 'symbol'}} - ⭐{{product.rating}}</p>
-          <div id="productListCard">
-            @if (product.inStock) {
-              <p class="in-stock">✅ En stock -</p>
-            } @else {
-              <p class="out-of-stock">❌ Rupture de stock -</p>
-            }
-            @switch (product.category) {
-              @case ('electronics') {
-                <span class="badge blue">📱 High-tech</span>
-              }
-              @case ('gaming') {
-                <span class="badge green">🎮 Jeux vidéo</span>
-              }
-              @case ('home'){
-                <span>🏠 Maison</span>
-              }
-              @case ('clothing'){
-                <span>👕 Mode</span>
-              }
-              @case ('sports'){
-                <span>⚽ Sport</span>
-              }
-              @default {
-                <span class="badge gray">📦 Autre</span>
-              }
-            }
-          </div>
-        </div>
+      <app-product-card [productCard]="product"></app-product-card>
     } @empty {
       <p>Aucun produit disponible...</p>
     }

@@ -1,6 +1,19 @@
 // product-card.scss
 div {
-  border: 1px solid black; // C'est du SCSS classique
-  padding: 1em;
-  background-color: #EE8B8B;
+  width: 20em;
+  height: 28em;
+  border-radius: 10%;
+  border: 2px solid black;
+  background: #e0e0e0;
+  margin: 10px;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+button {
+  border: black 1px solid;
+  margin: 5px;
+  border-radius: 10px;
 }

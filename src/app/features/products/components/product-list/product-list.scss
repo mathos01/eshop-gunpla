@@ -1,24 +1,9 @@
 // product-list.scss
-.card {
-  width: 20%;
-  height: 25%;
-  border-radius: 10%;
-  background: #e0e0e0;
-  box-shadow: 20px 20px 60px #bebebe,
-  -20px -20px 60px #ffffff;
-
-  margin: 1%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: nowrap;
-  align-items: center;
-}
 
 #productListCard{
   display: flex;
+  justify-content: center;
   flex-direction: row;
-  align-items: center;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
   padding: 1em;
-
 }
