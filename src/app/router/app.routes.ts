@@ -17,6 +17,9 @@ export const routes: Routes = [
     {path:'admin', loadComponent: () => import('../features/account/pages/admin.page'), canActivate:[authGuard]},
   ]
   },
+  //les pages d'authentification.
+  {path:"login", loadComponent: () => import("../features/auth/login/pages/login.page"),},
+  {path:"register", loadComponent: () => import("../features/auth/register/pages/register.page"),},
   //les pages de mon core , about/settings/error
   {path:'about',loadComponent: () => import('../core/pages/about.page'),},
   {path:'settings',loadComponent: () => import('../core/pages/setting.page'),},

@@ -3,11 +3,10 @@ import {ResolveEnd, ResolveStart, Router, RouterOutlet} from '@angular/router';
 import {ProductCard} from './features/products/components/product-card/product-card';
 import {Header} from './core/components/header/header';
 import {Footer} from './core/components/footer/footer';
-import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, NgOptimizedImage],
+  imports: [RouterOutlet, Header, Footer],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

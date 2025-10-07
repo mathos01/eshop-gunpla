@@ -1,0 +1,56 @@
+<!-- profile-form.page.html -->
+<form [formGroup]="registerForm">
+  <label>
+    userName :
+    <input type="text" formControlName="userName">
+  </label>
+  @if (registerForm.controls.userName.invalid && registerForm.controls.userName.touched) {
+    <p class="error">require name</p>
+  }
+
+  <label>
+    email :
+    <input type="email" formControlName="email">
+  </label>
+  @if (registerForm.controls.email.invalid && registerForm.controls.email.touched) {
+    <p class="error">email invalid</p>
+  }
+
+  <label>
+    phone Number :
+    <input type="tel" formControlName="phone">
+  </label>
+  @if (registerForm.controls.phone.invalid && registerForm.controls.phone.touched) {
+    <p class="error">phone number is not valid</p>
+  }
+
+    <div formArrayName="adresses">
+      @for (address of adresse.controls; track $index) {
+        <input [formControlName]="$index" placeholder="Adresse">
+        <button type="button" (click)="adresse.removeAt($index)">Supprimer</button>
+      }
+    </div>
+    <button type="button" (click)="adresse.push(fb.control(''))">Ajouter une adresse</button>
+
+  <label>
+    passWord :
+    <input type="password" formControlName="password">
+  </label>
+  @if (registerForm.controls.password.invalid && registerForm.controls.password.touched) {
+    <p class="error">your password is not valid</p>
+  }
+
+  <label>
+    confirm passWord :
+    <input type="password" formControlName="confirmPassword">
+  </label>
+  @if (registerForm.hasError('passwordMismatch')) {
+    <div class="error">Les mots de passe ne correspondent pas.</div>
+  }
+  @if (registerForm.controls.confirmPassword.invalid && registerForm.controls.confirmPassword.touched) {
+    <p class="error">phone number is not valid</p>
+  }
+
+
+  <button type="submit" [disabled]="registerForm.invalid">Envoyer</button>
+</form>
