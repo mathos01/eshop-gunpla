@@ -1,7 +1,7 @@
 import {Component, inject} from '@angular/core';
 import {ProductList} from '../components/product-list/product-list';
 import {ActivatedRoute, RouterOutlet} from '@angular/router';
-import type {product} from '../models/product.model';
+import type {Product} from '../models/product.model';
 
 @Component({
   selector: 'app-product.page',
@@ -19,5 +19,5 @@ export default class ProductPage {
 
 
   private route = inject(ActivatedRoute);
-  products :Array<product> = this.route.snapshot.data['products'];
+  products :Array<Product> = this.route.snapshot.data['products'];
 }

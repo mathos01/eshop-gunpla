@@ -1,5 +1,5 @@
 // product-card.scss
-div {
+.card {
   width: 20em;
   height: 28em;
   border-radius: 10%;
@@ -16,4 +16,23 @@ button {
   border: black 1px solid;
   margin: 5px;
   border-radius: 10px;
+}
+
+.favoriteButton {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+}
+
+.container {
+  position: relative;
+}
+
+.ratingForm{
+  border: 1px solid black;
+  background: #e0e0e0;
+  position: absolute;
+  top: -175px;
+  left: -48px;
+
 }

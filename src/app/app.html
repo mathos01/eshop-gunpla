@@ -1,13 +1,16 @@
 <app-header></app-header>
-<!--<app-search-form></app-search-form>-->
 @if (loading) {
   <div class="loader">
-    <img Src="https://svgsilh.com/svg/1299431.svg" alt="">
-    <h3>Chargement</h3>
+    <div class="drill">
+      <div class="drillLineHead"></div>
+      <div class="drillLineHead"></div>
+      <div class="drillLineHead"></div>
+      <div class="drillLineBottom"></div>
+    </div>
+    <div></div>
   </div>
-}
 
-<router-outlet></router-outlet>
-<!--<app-product-list></app-product-list>-->
-<!--<app-image-gallery></app-image-gallery>-->
+}
+  <router-outlet></router-outlet>
+
 <app-footer></app-footer>

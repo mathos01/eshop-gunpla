@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, signal} from '@angular/core';
 
 // counter.ts
 @Component({
@@ -7,18 +7,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./counter.scss']
 })
 export class Counter {
-  count = 0;
-  inputValue = '';
+  count = signal(0);
+
   increment(): void {
-    this.count++;
+    this.count.update(current => current++);
   }
   decrement(): void {
-    this.count--;
+    this.count.update(current => current--);
   }
   reset(): void {
-    this.count = 0;
-  }
-  onKeyUp(event: KeyboardEvent): void {
-    this.inputValue = (event.target as HTMLInputElement).value;
+    this.count.set(0);
   }
 }

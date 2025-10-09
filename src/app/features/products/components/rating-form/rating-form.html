@@ -1,0 +1,20 @@
+<form [formGroup]="ratingForm" (ngSubmit)="onSubmit()">
+  <label>
+    rating :
+    <input type="number" formControlName="rating">
+  </label>
+  @if (ratingForm.controls.rating.invalid && ratingForm.controls.rating.touched) {
+    <p class="error">note non valide</p>
+  }
+
+  <label>
+    comment :
+    <input type="text" formControlName="comment">
+  </label>
+  @if (ratingForm.controls.comment.invalid && ratingForm.controls.comment.touched) {
+    <p class="error">passWord is not valid</p>
+  }
+
+
+  <button type="submit" [disabled]="ratingForm.invalid">Envoyer</button>
+</form>

@@ -1,15 +1,29 @@
 <!-- product-card.html -->
-<div [ngStyle]="{background: productCard().inStock?'#e0e0e0':'#EE8B8B'}">
-  <h3>{{ productCard().name }}</h3>
-  <img [src]="productCard().imageUrl" [alt]="productCard().name">
-  <p>prix: {{productCard().price | currency: "EUR"}} avis: {{productCard().rating}}⭐</p>
-  @if (productCard().inStock) {
-    <p class="in-stock">✅ En stock</p>
-  } @else {
-    <p class="out-of-stock">❌ Rupture de stock</p>
-  }
+<div class="card" [ngStyle]="{background: product().inStock?'#e0e0e0':'#EE8B8B'}">
+  <h3>{{ product().name }}</h3>
+  <div class="container">
+    <img [src]="product().imageUrl" [alt]="product().name">
+    <button class="favoriteButton" (click)="onToggleFavorite()"> {{isFavorite() ? '⭐':'★'}}</button>
+  </div>
+
+  <p>prix: {{product().price | currency: "EUR"}} avis: {{ratingMedium() | number}}⭐</p>
   <nav>
-    <button (click)="onBuyClick()">Acheter</button>
-    <button [routerLink]="[productCard().id]">Détails</button>
+    @if (product().inStock) {
+      <button (click)="onBuyClick()">Acheter</button>
+    } @else {
+      <button [disabled]="true">en rupture</button>
+    }
+    <button [routerLink]="[product().id]">Détails</button>
+    <button (click)="onToggleRatingForm()">noter</button>
   </nav>
+  @if (showRatingForm){
+    <div class="container">
+      <div class="ratingForm">
+        <app-rating-form
+          [productId]="product().id"
+          (ratingFormSubmitted)="onReviewSubmitted($event)"
+        > </app-rating-form>
+      </div>
+    </div>
+  }
 </div>

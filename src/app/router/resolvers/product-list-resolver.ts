@@ -1,9 +1,9 @@
 import { ResolveFn } from '@angular/router';
-import {product} from '../../features/products/models/product.model';
+import {Product} from '../../features/products/models/product.model';
 import {delay, of} from 'rxjs';
 
-export const productListResolver: ResolveFn<Array<product>> = (route, state) => {
-  const products : Array<product> = [
+export const productListResolver: ResolveFn<Array<Product>> = (route, state) => {
+  const products : Array<Product> = [
     {
       id: 1,
       name: 'Bandai gunpla: MG RX 78-2',
