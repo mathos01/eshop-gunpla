@@ -4,21 +4,26 @@
     <div id="blackBorder">
       <p>nos produits!</p>
     </div>
-    <div id="productListCard">
-    @for(product of products(); track product.id) {
+    <div id="blackBorder">
+      <app-search-form
+        (research)="searchFromCategory($event)"
+      ></app-search-form>
+    </div>
 
-      <app-product-card
-        [product]="product"
-        [isFavorite]="isInFavorite(product.id)"
-        [ratingMedium]="calculateMediumOfRatingReview(product.id)"
-        (productAddedToCart)="onProductAddedToCart($event)"
-        (productAddedToFavorites)="onProductAddedToFavorite($event)"
-        (productRemoveFromFavorites)="onProductRemovedFromFavorites($event)"
-        (productReviews)="onReviewAdded($event)"
-      ></app-product-card>
-    } @empty {
-      <p>Aucun produit disponible...</p>
-    }
+    <div id="productListCard">
+      @for(product of search(); track product.id) {
+          <app-product-card
+            [product]="product"
+            [isFavorite]="isInFavorite(product.id)"
+            [ratingMedium]="calculateMediumOfRatingReview(product.id)"
+            (productAddedToCart)="onProductAddedToCart($event)"
+            (productAddedToFavorites)="onProductAddedToFavorite($event)"
+            (productRemoveFromFavorites)="onProductRemovedFromFavorites($event)"
+            (productReviews)="onReviewAdded($event)"
+          ></app-product-card>
+      } @empty {
+        <p>Aucun produit disponible...</p>
+      }
     </div>
     <div id="blackBorder">
       <p>{{getProductNumber()}} produits au total</p>

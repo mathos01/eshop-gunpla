@@ -1,5 +1,5 @@
 <app-header></app-header>
-@if (loading) {
+@if (loading()) {
   <div class="loader">
     <div class="drill">
       <div class="drillLineHead"></div>
@@ -7,10 +7,9 @@
       <div class="drillLineHead"></div>
       <div class="drillLineBottom"></div>
     </div>
-    <div></div>
   </div>
-
-}
+} @else {
   <router-outlet></router-outlet>
+}
 
 <app-footer></app-footer>

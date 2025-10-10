@@ -1,12 +1,13 @@
-import {Component, input} from '@angular/core';
-import type { Product } from '../../models/product.model';
+import {Component, computed, input, signal} from '@angular/core';
+import type {category, Product} from '../../models/product.model';
 import {ProductCard} from '../product-card/product-card';
 import {Review} from '../../models/Review.model';
+import {SearchForm} from '../search-form/search-form';
 // product-list.ts
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.html',
-  imports: [ProductCard],
+  imports: [ProductCard, SearchForm],
   styleUrls: ['./product-list.scss']
 })
 export class ProductList {
@@ -15,6 +16,12 @@ export class ProductList {
   cartItems: Array<Product> = [];
   favoriteIds: Array<number> = [];
   reviews: Array<Review> = [];
+  categorySearch = signal("");
+
+  search = computed(() => {
+    return this.categorySearch() == '' ? this.products() : this.products().filter((product) => product.category == this.categorySearch());
+  })
+
 
   onProductAddedToCart(product: Product) {
   this.cartItems.push(product);
@@ -51,7 +58,11 @@ export class ProductList {
     return this.products().filter(product => product.inStock).length;
   }
   public getProductNumber():number{
+
     return this.products().length;
+  }
+  public searchFromCategory(categoryChosen:category){
+    this.categorySearch.set(categoryChosen);
   }
 
 }

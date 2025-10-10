@@ -11,13 +11,13 @@ import {Footer} from './core/components/footer/footer';
   styleUrl: './app.scss'
 })
 export class App {
-  loading:boolean = false;
+  loading = signal(false);
   protected readonly title = signal('e-shop-gunpla');
 
   constructor(private router: Router) {
     router.events.subscribe((event) => {
-      if (event instanceof ResolveStart) this.loading = true;
-      if (event instanceof ResolveEnd) this.loading = false;
+      if (event instanceof ResolveStart) this.loading.set(true);
+      if (event instanceof ResolveEnd) this.loading.set(false);
     });
   }
 

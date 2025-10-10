@@ -4,7 +4,9 @@ export type Product = {
   price: number;
   description: string;
   imageUrl: string;
-  category: string;
+  category: category;
   inStock: boolean;
   rating: number;
 }
+
+export type category = "gaming" | "clothing" | "home" | "electronics" | "sports";
