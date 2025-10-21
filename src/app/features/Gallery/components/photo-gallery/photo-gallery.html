@@ -1,0 +1,25 @@
+  @if (isloading()){
+    <div class="loader">
+      <div class="drill">
+        <div class="drillLineHead"></div>
+        <div class="drillLineHead"></div>
+        <div class="drillLineHead"></div>
+        <div class="drillLineBottom"></div>
+      </div>
+    </div>
+  } @else {
+    <div class="container">
+    @for ( photo of photo() ; track  photo.id) {
+      <div class="photoCard">
+        <div class="photo">
+          <img [src]="photo.download_url" [alt]="photo.author">
+          <p> {{photo.author}}</p>
+          <button (click)="toggleLike(photo.id)">{{photo.like}}{{like[photo.id] ? '👍':''}}</button>
+        </div>
+      </div>
+    }
+    </div>
+    <div class="reset">
+      <button (click)="refresh()">reset</button>
+    </div>
+  }

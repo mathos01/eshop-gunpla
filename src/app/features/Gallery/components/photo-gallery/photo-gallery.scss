@@ -1,0 +1,36 @@
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr;
+}
+
+.photoCard{
+  margin: 1em 1em;
+  border-radius: 10%;
+  border: 1px solid black;
+  overflow: hidden;
+  box-shadow: #666666 5px 5px 5px;
+}
+
+.photo{
+
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: auto;
+}
+
+.reset{
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto 1fr;
+  align-items: center;
+}
+
+
+.loader {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}

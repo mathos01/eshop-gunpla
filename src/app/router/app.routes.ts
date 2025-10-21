@@ -5,6 +5,8 @@ import {authGuard} from './guards/auth-guard';
 export const routes: Routes = [
   //ma page d'accueil
   {path: '', loadComponent: () => import("../features/home/pages/home.page")},
+  //photo gallery
+  {path: 'photoGallery', loadComponent: () => import("../features/Gallery/pages/photo-gallery.page")},
   //mon magasin
   {path: 'products', loadComponent: () => import("../features/products/pages/product.page"),resolve:{products : productListResolver}},
   {path: 'products/:id', loadComponent: () => import("../features/products/pages/product-detail.page"),},
@@ -25,4 +27,5 @@ export const routes: Routes = [
   {path:'settings',loadComponent: () => import('../core/pages/setting.page'),},
   {path:'error' ,loadComponent: () => import('../core/pages/error.page'),},
   {path:'**', redirectTo: 'error'},
+
 ];
