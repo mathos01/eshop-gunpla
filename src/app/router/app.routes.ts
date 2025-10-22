@@ -1,15 +1,18 @@
 import {Routes} from '@angular/router';
 import {productListResolver} from './resolvers/product-list-resolver';
 import {authGuard} from './guards/auth-guard';
+import {productResolver} from './resolvers/product-resolver';
 
 export const routes: Routes = [
   //ma page d'accueil
   {path: '', loadComponent: () => import("../features/home/pages/home.page")},
   //photo gallery
   {path: 'photoGallery', loadComponent: () => import("../features/Gallery/pages/photo-gallery.page")},
+  //ma liste d'user
+  {path: 'userlist', loadComponent: () => import("../features/user/pages/user.page")},
   //mon magasin
-  {path: 'products', loadComponent: () => import("../features/products/pages/product.page"),resolve:{products : productListResolver}},
-  {path: 'products/:id', loadComponent: () => import("../features/products/pages/product-detail.page"),},
+  {path: 'product', loadComponent: () => import("../features/products/pages/product.page"),resolve:{products : productListResolver}},
+  {path: 'product/:id', loadComponent: () => import("../features/products/pages/product-detail.page"),resolve:{product : productResolver}},
   //manager de compte
   {path:'account',
   loadComponent: () => import('../features/account/pages/account.page'),

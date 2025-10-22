@@ -1,17 +1,20 @@
 import { Component, inject } from '@angular/core';
 import {ActivatedRoute} from '@angular/router';
+import {Product} from '../models/product.model';
+import {ProductCard} from '../components/product-card/product-card';
 
 @Component({
   selector: 'app-product-detail.page',
-  imports: [],
+  imports: [
+    ProductCard
+  ],
   template: `
-    <p>
-      L'id du produit est : {{productId}}
-    </p>
+    <app-product-card [product]="product"></app-product-card>
   `,
   styles: ``
 })
 export default class ProductDetailPage {
   private route = inject(ActivatedRoute);
-  productId = this.route.snapshot.paramMap.get('id');
+
+  product: Product = this.route.snapshot.data['product'] as Product;
 }

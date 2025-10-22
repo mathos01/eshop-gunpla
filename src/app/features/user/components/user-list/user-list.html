@@ -1,0 +1,21 @@
+<!-- user-list.html -->
+<div>
+  <h2>Liste des utilisateurs</h2>
+
+  @if (isLoading()) {
+    <p>Chargement...</p>
+  }
+
+  @for (user of users(); track user.id) {
+    <div>
+      <p>{{ user.name }} - {{ user.email }}</p>
+      <button
+        (click)="deleteUser(user.id)"
+        [disabled]="isDeleting() === user.id">
+        {{ isDeleting() === user.id ? 'Suppression...' : 'Supprimer' }}
+      </button>
+    </div>
+  } @empty {
+    <p>Aucun utilisateur trouvé</p>
+  }
+</div>
