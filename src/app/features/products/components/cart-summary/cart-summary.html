@@ -1,0 +1,10 @@
+<script src="../product-list/product-list.ts"></script>
+<div class="marge">
+  @for (cart of cart(); track cart.id) {
+    <p> {{cart.name}}</p>
+    <button (click)="removeCart(cart)">🗑️</button>
+  }
+  <p> nombre d'article: {{cartCount()}}</p>
+  <p> prix total: {{price()}}</p>
+  <button [routerLink]="['/cart']">cart</button>
+</div>

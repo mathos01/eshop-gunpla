@@ -13,6 +13,7 @@ export const routes: Routes = [
   //mon magasin
   {path: 'product', loadComponent: () => import("../features/products/pages/product.page"),resolve:{products : productListResolver}},
   {path: 'product/:id', loadComponent: () => import("../features/products/pages/product-detail.page"),resolve:{product : productResolver}},
+  {path: 'cart', loadComponent: () => import("../features/products/pages/cart.page")},
   //manager de compte
   {path:'account',
   loadComponent: () => import('../features/account/pages/account.page'),

@@ -1,9 +1,10 @@
-import {Component, input, output} from '@angular/core';
+import {Component, inject, input, output} from '@angular/core';
 import {Product} from '../../models/product.model';
 import {CurrencyPipe, DecimalPipe, NgStyle} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {RatingForm} from '../rating-form/rating-form';
 import {Review} from '../../models/Review.model';
+import {CartStore} from '../../services/cart.store';
 
 // product-card.ts
 @Component({ // ← Décorateur
@@ -19,6 +20,8 @@ import {Review} from '../../models/Review.model';
   styleUrls: ['./product-card.scss'] // ← lien vers son style
 })
 export class ProductCard {
+  private productStore = inject(CartStore);
+
   //récupère les infos du produits
   product = input.required<Product>();
   isFavorite = input<boolean>(false);
@@ -26,7 +29,6 @@ export class ProductCard {
   showRatingForm:boolean = false;
 
   //mes output qui renvoie des infos au component parent
-  productAddedToCart = output<Product>();
   productAddedToFavorites = output<Product>();
   productRemoveFromFavorites = output<Product>();
   productReviews = output<Review>();
@@ -36,7 +38,7 @@ export class ProductCard {
   //mes méthode
   onBuyClick() { // méthode
     if (this.product().inStock) {
-      this.productAddedToCart.emit(this.product());
+      this.productStore.addCart(this.product());
     }
   }
 
