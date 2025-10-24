@@ -16,7 +16,6 @@
             [product]="product"
             [isFavorite]="isInFavorite(product.id)"
             [ratingMedium]="calculateMediumOfRatingReview(product.id)"
-            (productAddedToCart)="onProductAddedToCart($event)"
             (productAddedToFavorites)="onProductAddedToFavorite($event)"
             (productRemoveFromFavorites)="onProductRemovedFromFavorites($event)"
             (productReviews)="onReviewAdded($event)"

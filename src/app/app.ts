@@ -4,10 +4,11 @@ import {Header} from './core/components/header/header';
 import {Footer} from './core/components/footer/footer';
 import {BannerError} from './shared/components/banner-error/banner-error';
 import {GlobalLoading} from './core/components/global-loading/global-loading';
+import {BannerNotify} from './shared/components/banner-notify/banner-notify';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, BannerError, GlobalLoading],
+  imports: [RouterOutlet, Header, Footer, BannerError, GlobalLoading, BannerNotify],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

@@ -1,6 +1,6 @@
 import {Component, inject} from '@angular/core';
 import {CartSummary} from '../components/cart-summary/cart-summary';
-import {CartStore} from '../services/cart.store';
+import {CartFacade} from '../services/cart.facade';
 
 @Component({
   selector: 'app-cart.page',
@@ -14,9 +14,9 @@ import {CartStore} from '../services/cart.store';
   styles: ``
 })
 export default class CartPage {
-  private productStore = inject(CartStore);
+  private productStore = inject(CartFacade);
 
   clearCart(): void {
-    this.productStore.clearCart();
+    this.productStore.ClearFromCart();
   }
 }

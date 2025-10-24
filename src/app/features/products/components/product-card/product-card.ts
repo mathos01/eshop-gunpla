@@ -4,7 +4,8 @@ import {CurrencyPipe, DecimalPipe, NgStyle} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {RatingForm} from '../rating-form/rating-form';
 import {Review} from '../../models/Review.model';
-import {CartStore} from '../../services/cart.store';
+import {CartStore} from '../../../cart/services/cart.store';
+import {CartFacade} from '../../../cart/services/cart.facade';
 
 // product-card.ts
 @Component({ // ← Décorateur
@@ -20,7 +21,7 @@ import {CartStore} from '../../services/cart.store';
   styleUrls: ['./product-card.scss'] // ← lien vers son style
 })
 export class ProductCard {
-  private productStore = inject(CartStore);
+  private productfacade = inject(CartFacade);
 
   //récupère les infos du produits
   product = input.required<Product>();
@@ -36,9 +37,9 @@ export class ProductCard {
 
 
   //mes méthode
-  onBuyClick() { // méthode
+  async onBuyClick() { // méthode
     if (this.product().inStock) {
-      this.productStore.addCart(this.product());
+      await this.productfacade.AddToCart(this.product());
     }
   }
 
