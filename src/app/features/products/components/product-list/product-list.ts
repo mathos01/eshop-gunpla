@@ -1,4 +1,4 @@
-import {Component, computed, input, signal} from '@angular/core';
+import {ChangeDetectionStrategy, Component, computed, input, signal} from '@angular/core';
 import type {category, Product} from '../../models/product.model';
 import {ProductCard} from '../product-card/product-card';
 import {Review} from '../../models/Review.model';
@@ -7,6 +7,7 @@ import {SearchForm} from '../search-form/search-form';
 @Component({
   selector: 'app-product-list',
   templateUrl: './product-list.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
   imports: [ProductCard, SearchForm],
   styleUrls: ['./product-list.scss']
 })

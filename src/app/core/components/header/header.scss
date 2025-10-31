@@ -1,4 +1,10 @@
 div{
+  position: sticky;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background: #fff;
   padding: 0px;
   border: gray solid 1px;
   display: flex;

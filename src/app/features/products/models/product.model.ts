@@ -4,9 +4,19 @@ export type Product = {
   price: number;
   description: string;
   imageUrl: string;
-  category: category;
+  category: string;
+  stock: number;
   inStock: boolean;
   rating: number;
 }
-
+export type CreateProduct = {
+  name: string;
+  price: number;
+  description: string;
+  imageUrl: string;
+  category: string;
+  stock: number;
+  inStock: boolean;
+  rating: number;
+}
 export type category = "gaming" | "clothing" | "home" | "electronics" | "sports";

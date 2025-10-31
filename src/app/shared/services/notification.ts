@@ -8,6 +8,7 @@ export class Notification {
 
   showSuccess(message: string): void {
     this.notification.set(message);
+    setTimeout(() => {this.notification.set(null)},500);
   }
 
 }

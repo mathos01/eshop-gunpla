@@ -2,8 +2,7 @@
 
 #productListCard{
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-around;
   flex-direction: row;
   flex-wrap: wrap;
-  padding: 1em;
 }

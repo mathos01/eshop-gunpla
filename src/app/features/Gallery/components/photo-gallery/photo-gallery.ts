@@ -2,10 +2,13 @@ import {Component, inject, signal} from '@angular/core';
 import {firstValueFrom} from 'rxjs';
 import {HttpClient} from '@angular/common/http';
 import {PhotoModel} from '../../models/photo.model';
+import {NgOptimizedImage} from '@angular/common';
 
 @Component({
   selector: 'app-photo-gallery',
-  imports: [],
+  imports: [
+    NgOptimizedImage
+  ],
   templateUrl: './photo-gallery.html',
   styleUrl: './photo-gallery.scss'
 })

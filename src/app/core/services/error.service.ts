@@ -7,5 +7,6 @@ export class ErrorService {
 
   notify(message: string) {
     this.error.set(message);
+    setTimeout(() => {this.error.set(null)},500);
   }
 }

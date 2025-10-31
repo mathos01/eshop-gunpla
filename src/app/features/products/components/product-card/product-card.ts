@@ -1,10 +1,9 @@
 import {Component, inject, input, output} from '@angular/core';
 import {Product} from '../../models/product.model';
-import {CurrencyPipe, DecimalPipe, NgStyle} from '@angular/common';
+import {CurrencyPipe, DecimalPipe, NgOptimizedImage, NgStyle} from '@angular/common';
 import {RouterLink} from '@angular/router';
 import {RatingForm} from '../rating-form/rating-form';
 import {Review} from '../../models/Review.model';
-import {CartStore} from '../../../cart/services/cart.store';
 import {CartFacade} from '../../../cart/services/cart.facade';
 
 // product-card.ts
@@ -15,7 +14,8 @@ import {CartFacade} from '../../../cart/services/cart.facade';
     RouterLink,
     NgStyle,
     RatingForm,
-    DecimalPipe
+    DecimalPipe,
+    NgOptimizedImage
   ], // ← pour importer les outils utiles au composant
   templateUrl: './product-card.html', // ← lien vers son template
   styleUrls: ['./product-card.scss'] // ← lien vers son style
@@ -51,11 +51,7 @@ export class ProductCard {
     }
   }
   onToggleRatingForm(){
-    if (this.showRatingForm){
-      this.showRatingForm = false;
-    }else {
-      this.showRatingForm = true;
-    }
+    this.showRatingForm = !this.showRatingForm;
   }
   onReviewSubmitted(review: Review) {
     this.showRatingForm = false;

@@ -5,6 +5,6 @@
     <button (click)="removeCart(cart)">🗑️</button>
   }
   <p> nombre d'article: {{cartCount()}}</p>
-  <p> prix total: {{price()}}</p>
+  <p> prix total: {{price() | currency}}</p>
   <button [routerLink]="['/cart']">cart</button>
 </div>

@@ -2,7 +2,7 @@
 <div class="card" [ngStyle]="{background: product().inStock?'#e0e0e0':'#EE8B8B'}">
   <h3>{{ product().name }}</h3>
   <div class="container">
-    <img [src]="product().imageUrl" [alt]="product().name">
+    <img [ngSrc]="product().imageUrl" width="300" height="200">
     <button class="favoriteButton" (click)="onToggleFavorite()"> {{isFavorite() ? '⭐':'★'}}</button>
   </div>
 

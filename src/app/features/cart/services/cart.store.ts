@@ -12,6 +12,7 @@ export class CartStore {
   CartCount = computed(() => this.CartSignal().length);
   CartTotal = computed(() => this.total());
 
+
   total(){
     let total:number = 0;
 

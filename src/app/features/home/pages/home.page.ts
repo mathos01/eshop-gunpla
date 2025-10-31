@@ -5,7 +5,8 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
   imports: [RouterLink],
   template: `
     <div>
-        <button [routerLink]="['/product']">entrer dans le store</button>
+      <p>Gunpla shop</p>
+      <a [routerLink]="['/product']">entrer dans le store</a>
     </div>
   `,
   styles: `

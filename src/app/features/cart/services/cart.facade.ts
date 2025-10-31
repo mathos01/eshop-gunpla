@@ -16,6 +16,7 @@ export class CartFacade {
   async AddToCart(productData: Product): Promise<Product> {
     // step 1
     cartRules.ValidateAdd(productData,this.cartStore);
+    console.log(productData);
     // step 2 api
     const product = await this.cartApi.setProducts(productData);
     // step 3 cache
@@ -31,6 +32,7 @@ export class CartFacade {
     cartRules.ValidateRemove(productData,this.cartStore);
     //step 2
     const product = await this.cartApi.removeFromCart(productData);
+
     //step 3
     this.cartStore.removeCart(product);
     //step 4
