@@ -5,7 +5,7 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
   imports: [RouterLink],
   template: `
     <div>
-      <p>Gunpla shop</p>
+      <H1>Gunpla shop</H1>
       <a [routerLink]="['/product']">entrer dans le store</a>
     </div>
   `,
@@ -14,7 +14,7 @@ import {ActivatedRoute, RouterLink} from '@angular/router';
     display: flex;
     flex-direction: column;
     align-items: center;
-    padding: 1em;
+    padding: 30px;
   }`
 })
 export default class HomepagePage {
