@@ -1,6 +1,10 @@
 // navigate.cy.ts
 describe('Navigation', () => {
   it('naviguate to product page', () => {
+    cy.fixture('products').then((data) => {
+      cy.intercept('GET', '/products', data);
+    });
+
     cy.visit('/');
     // Simule un clic sur le lien "Produits"
     cy.get('a[href="/product"]').click();
