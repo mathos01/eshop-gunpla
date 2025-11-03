@@ -7,7 +7,6 @@ import { TestBed } from "@angular/core/testing";
 import { CartApi } from "@app/features/cart/services/cart.api";
 import { CartFacade } from "@app/features/cart/services/cart.facade";
 import { CartStore } from "@app/features/cart/services/cart.store";
-import {environment} from '../../environments/environment';
 // 👆 Tu vois le "@app" ? C'est grâce à nos tsconfig qu'on peut l'utiliser 😉
 
 
@@ -45,7 +44,7 @@ describe('ProductFacade.createProduct (integration)', () => {
     const promise = facade.AddToCart(dto);
 
     // 3. Assert (API)
-    const req = http.expectOne(`${environment.apiUrl}/cart.json`);
+    const req = http.expectOne('http://localhost:4200/cart.json');
     expect(req.request.method).toBe('POST');
     expect(req.request.body).toEqual(dto);
 

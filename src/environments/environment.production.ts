@@ -2,5 +2,5 @@
 export const environment = {
   production: true,
   name: 'production',
-  apiUrl: '' // Ex : api.fromphacotohero.fr
+  apiUrl: 'http://localhost:4200' // Ex : api.fromphacotohero.fr
 };

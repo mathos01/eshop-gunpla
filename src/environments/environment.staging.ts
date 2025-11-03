@@ -2,5 +2,5 @@
 export const environment = {
   production: true, // staging sera en ligne, donc app buildée aussi !
   name: 'staging',
-  apiUrl: '' // Ex : staging-api.fromphacotohero.fr
+  apiUrl: 'http://localhost:4200' // Ex : staging-api.fromphacotohero.fr
 };
