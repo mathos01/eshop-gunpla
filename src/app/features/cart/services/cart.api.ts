@@ -11,7 +11,7 @@ export class CartApi extends BaseApi {
 
   async setProducts(product: Product)  {
     console.log (product.name + " produit ajouté");
-     await this.post<Product>(this.endpoint, product);
+     //await this.post<Product>(this.endpoint, product);
     return product;
   }
   async removeFromCart(product: Product): Promise<Product> {
