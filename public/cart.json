@@ -1,1 +1,11 @@
-[]
+[{
+  "id": 1,
+  "name": "Bandai gunpla: MG RX 78-2",
+  "description": "maquette de la franchise gundam sur le célèbre modèle RX 78-2 dans sa version master grade",
+  "price": 49.99,
+  "imageUrl": "https://placehold.co/300x200/8B0000/ffffff?text=RX78-2",
+  "category": "gaming",
+  "inStock": true,
+  "stock": 5,
+  "rating": 4.9
+}]

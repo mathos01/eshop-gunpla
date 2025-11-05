@@ -6,16 +6,16 @@ import { Product} from '../../products/models/product.model';
   providedIn: 'root'
 })
 export class CartApi extends BaseApi {
-  private readonly endpoint = "http://localhost:4200/cart.json";
+  private readonly endpoint = "cart.json";
 
 
-  async setProducts(product: Product)  {
-    console.log (product.name + " produit ajouté");
-     await this.post<Product>(this.endpoint, product);
+  async setProducts(product: Product): Promise<Product>  {
+    console.log (product);
+    this.post<Product>(this.endpoint, product);
     return product;
   }
   async removeFromCart(product: Product): Promise<Product> {
-    console.log (product.name + " removeFromCart");
+    console.log (product.name + "removeFromCart");
     return product;
   }
   async clearFromCart(): Promise<void> {
