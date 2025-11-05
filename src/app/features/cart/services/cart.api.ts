@@ -6,7 +6,7 @@ import { Product} from '../../products/models/product.model';
   providedIn: 'root'
 })
 export class CartApi extends BaseApi {
-  private readonly endpoint = "http://localhost:4200/cart.json";
+  private readonly endpoint = "cart.json";
 
 
   async setProducts(product: Product)  {
